@@ -1,0 +1,29 @@
+services:
+  bot:
+    image: ghcr.io/capcom6/lucky-pick-tg-bot:latest
+    environment:
+      - TZ=${TIMEZONE:-UTC}
+      - HTTP__ADDRESS=:3000
+      - TELEGRAM__TOKEN=${BOT__TELEGRAM_TOKEN}
+      - DATABASE__URL=${BOT__DATABASE__URL}
+      - OPENROUTER__TOKEN=${BOT__OPENROUTER__TOKEN}
+    networks:
+      - internal
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+      resources:
+        reservations:
+          memory: 16M
+        limits:
+          memory: 128M
+
+networks:
+  public:
+    external: true
+  internal:
+    external: true
