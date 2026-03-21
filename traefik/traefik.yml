@@ -49,7 +49,7 @@ certificatesResolvers:
       #
       # Required
       #
-      email: "admin@example.com"
+      email: "admin@lucky-pick.ru"
 
       # File or key used for certificates storage.
       #
