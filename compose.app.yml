@@ -7,6 +7,8 @@ services:
       - TELEGRAM__TOKEN=${BOT__TELEGRAM_TOKEN}
       - DATABASE__URL=${BOT__DATABASE__URL}
       - OPENROUTER__TOKEN=${BOT__OPENROUTER__TOKEN}
+      - GIVEAWAYS__LLM_MODEL=${BOT__GIVEAWAYS__LLM_MODEL:-google/gemini-2.0-flash-001}
+      - DISCUSSIONS__LLM_MODEL=${BOT__DISCUSSIONS__LLM_MODEL:-nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free}
     networks:
       - internal
     deploy:
